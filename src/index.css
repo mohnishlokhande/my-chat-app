@@ -11,6 +11,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* global color vars */
+  --color_primary: #646cff;
+  --color_secondary: #535bf2;
+  --color_tertiary: #1a1a1a;
+  --color_background: #242424;
+  --color_content_primary: #f9f9f9;
+  --color_content_secondary: #f9f9f9a0;
+  --color_link: #646cff;
+  --color_link_hover: #535bf2;
+  --color_button: #1a1a1a;
+  --color_button_hover: #535bf2;
+  --color_border: #cccccc52;
+  --color_border_hover: #535bf2;
+  --color_error: #ff4d4f;
+  --color_success: #52c41a;
+  --color_warning: #faad14;
+  --color_info: #1890ff;
+  --color_disabled: #bfbfbf;
+  --color_disabled_text: #8c8c8c;
 }
 
 a {
@@ -20,6 +40,14 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0rem;
 }
 
 body {
