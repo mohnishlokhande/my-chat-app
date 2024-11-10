@@ -21,6 +21,11 @@ View the live application here: https://mohnishlokhande.github.io/my-chat-app/
 - Responsive
 - Latest Chat comes on top at sidebar
 
+#### Can Extend
+
+- Group messages
+- Draft message for a chat, which was not sent
+
 ## Architecture
 
 The application has mainly 4 components:
