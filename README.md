@@ -37,9 +37,9 @@ The application has mainly 4 components:
 - Display the conversation of selected chat
 - Send message
 
-#### Create new chat via selecting a contact
+#### Create new chat
 
-- Select a contact for chat
+- Create new chat via selecting a contact
 
 #### Empty page
 
@@ -65,7 +65,7 @@ To run the application locally, follow these steps:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/mohnishlokhande/my-chat-app
+   git clone https://github.com/mohnishlokhande/my-chat-app.git
    cd my-chat-app
    ```
 

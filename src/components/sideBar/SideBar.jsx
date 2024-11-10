@@ -40,6 +40,10 @@ function SideBar() {
         onChange={onSearch}
       />
 
+      {filerChats.length === 0 && (
+        <div className={styles.noChats}>No chats found!</div>
+      )}
+
       {filerChats.map((chat, index) => {
         return <ChatBlock key={index} chat={chat} />;
       })}
