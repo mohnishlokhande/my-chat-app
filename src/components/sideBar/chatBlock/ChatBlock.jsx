@@ -3,9 +3,22 @@ import styles from "./ChatBlock.module.css";
 import PropTypes from "prop-types";
 
 function ChatBlock(props) {
-  const { name, message, time, isSelf = "false" } = props;
+  const {
+    name,
+    message = "",
+    time,
+    isSelf = false,
+    isSelected = false,
+  } = props;
   return (
-    <div className={styles.chatRow}>
+    <div
+      className={styles.chatRow}
+      style={{
+        backgroundColor: isSelected
+          ? "var(color_background_selected)"
+          : "var(--color_background)",
+      }}
+    >
       <UserOutlined style={{ fontSize: "larger" }} />
       <div className={styles.chatDetails}>
         <div style={{ display: "flex" }}>
@@ -20,11 +33,12 @@ function ChatBlock(props) {
 }
 
 ChatBlock.propTypes = {
-  name: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  message: PropTypes.string,
+  time: PropTypes.string,
   avatar: PropTypes.string,
   isSelf: PropTypes.bool,
+  isSelected: PropTypes.bool,
 };
 
 export default ChatBlock;

@@ -1,25 +1,27 @@
 import { useConversationStore } from "../../store/chatStore";
 import { MAIN_VIEW } from "../../utils/constants";
-import EmptyPage from "../emptyPage/EmptyPage";
+import EmptyPage from "../emptyPage";
+import Chat from "./chat";
 import styles from "./MainContainer.module.css";
+import NewMessage from "./newMessage";
 
 function MainContainer() {
   const {
     mainView,
     // setMainView,
-    // activeConversation,
-    // setActiveConversation,
+    // setActiveChat,
     // conversations,
   } = useConversationStore();
+  console.log("MainContainer", mainView);
 
-  if (mainView === MAIN_VIEW.EMPTY) {
-    return <EmptyPage />;
-  }
-  if (mainView === MAIN_VIEW.NEWCHAT) {
-    return <EmptyPage />;
-  }
-
-  return <div className={styles.mainContainer}>MainContainer</div>;
+  return (
+    <div className={styles.mainContainer}>
+      {mainView === MAIN_VIEW.EMPTY && <EmptyPage />}
+      {mainView === MAIN_VIEW.NEWCHAT && <NewMessage />}
+      {mainView === MAIN_VIEW.CHAT && <Chat />}
+      {/* MainContainer */}
+    </div>
+  );
 }
 
 export default MainContainer;

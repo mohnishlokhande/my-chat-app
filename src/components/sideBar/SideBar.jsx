@@ -1,10 +1,17 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
 import styles from "./SideBar.module.css";
 import ChatBlock from "./chatBlock";
-import { useChatStore } from "../../store/chatStore";
+import { useChatStore, useConversationStore } from "../../store/chatStore";
+import { MAIN_VIEW } from "../../utils/constants";
 
 function SideBar() {
-  const { chats, addChat } = useChatStore();
+  const { chats, activeChat } = useChatStore();
+  const {
+    // mainView,
+    setMainView,
+    // chats,
+  } = useConversationStore();
+  console.log("Side", activeChat, "|", chats);
   return (
     <div className={styles.sidebar}>
       <div className={styles.chatHeader}>
@@ -12,15 +19,13 @@ function SideBar() {
         <PlusCircleOutlined
           className={styles.addChat}
           onClick={() => {
-            addChat({ name: "Check", message: "Hello", time: "11:00" });
-            console.log("Add chat clicked");
+            setMainView(MAIN_VIEW.NEWCHAT);
           }}
         />
       </div>
 
       <input placeholder="Find a Chat" className={styles.searchBox} />
 
-      {/* <ChatBlock name="Mohnish" message="Hello" time="10:00" isSelf={true} /> */}
       {chats?.map((chat, index) => {
         return (
           <ChatBlock
@@ -28,7 +33,8 @@ function SideBar() {
             name={chat.name}
             message={chat.message}
             time={chat.time}
-            isSelf={chat.isSelf}
+            isSelf={chat.participants.length === 1}
+            isSelected={activeChat?.id === chat.id}
           />
         );
       })}

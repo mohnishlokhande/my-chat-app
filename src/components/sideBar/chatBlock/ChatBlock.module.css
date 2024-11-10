@@ -3,13 +3,16 @@
   border-bottom: 1px solid var(--color_border);
   padding: 1rem 1rem;
   cursor: pointer;
+  opacity: 0.85;
+}
+.chatRow:hover {
+  opacity: 1;
 }
 .chatDetails {
   display: flex;
   flex-direction: column;
   padding: 0.5rem 1rem;
   width: 100%;
-  /* border-bottom: 1px solid var(--color_border); */
 }
 .secondary_text {
   color: var(--color_content_secondary);

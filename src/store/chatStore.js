@@ -14,14 +14,20 @@ export const useContactStore = create((set) => ({
 
 export const useChatStore = create((set) => ({
   chats: chatInitialState,
-  addChat: (chat) => set((state) => ({ chats: [...state.chats, chat] })),
+  activeChat: null,
+  addChat: (chat) =>
+    set((state) => {
+      let len = state?.chats?.length || 1;
+      let newChat = { ...chat, id: len + 1 };
+      return { chats: [...state.chats, newChat], activeChat: newChat };
+    }),
+
+  setActiveChat: (item) => set({ activeChat: item }),
 }));
 
 export const useConversationStore = create((set) => ({
   mainView: MAIN_VIEW.EMPTY,
-  setMainView: (item) => set({ item }),
-  activeConversation: null,
-  setActiveConversation: (item) => set({ item }),
+  setMainView: (item) => set({ mainView: item }),
   conversations: conversationInitialState,
   addConversation: (conversation) =>
     set((state) => {

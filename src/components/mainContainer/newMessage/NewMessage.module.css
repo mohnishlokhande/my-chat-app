@@ -1,0 +1,14 @@
+.newMsgHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  background-color: var(--color_background_secondary);
+  height: max-content;
+}
+.searchContact {
+  display: grid;
+  align-items: center;
+  padding-top: 1rem;
+  grid-template-columns: 1fr 20fr;
+  gap: 1rem;
+}
