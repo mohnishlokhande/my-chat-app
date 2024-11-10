@@ -19,3 +19,16 @@
   font-size: small;
   align-self: center;
 }
+.chatInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.crossBtn {
+  transition: font-size 0.25s;
+}
+.crossBtn:hover {
+  color: white;
+  font-size: large;
+}

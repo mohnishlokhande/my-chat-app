@@ -1,12 +1,12 @@
-import { UserOutlined } from "@ant-design/icons";
+import { CloseOutlined, UserOutlined } from "@ant-design/icons";
 import styles from "./ChatBlock.module.css";
 import PropTypes from "prop-types";
 import { useChatStore, useConversationStore } from "../../../store/chatStore";
 import { MAIN_VIEW } from "../../../utils/constants";
 
 function ChatBlock(props) {
-  const { activeChat, setActiveChat } = useChatStore();
-  const { setMainView } = useConversationStore();
+  const { chats, activeChat, setActiveChat, updateChats } = useChatStore();
+  const { removeConversation, setMainView } = useConversationStore();
   const { chat } = props;
 
   const { id, name, lastMsg = "", time, participants } = chat;
@@ -16,6 +16,21 @@ function ChatBlock(props) {
   const selectChat = () => {
     setActiveChat(chat);
     setMainView(MAIN_VIEW.CHAT);
+  };
+
+  const closeChat = (e) => {
+    e.stopPropagation();
+    if (activeChat?.id === id) {
+      setMainView(MAIN_VIEW.EMPTY);
+      setActiveChat(null);
+    }
+    const index = chats.findIndex((obj) => obj.id === id);
+    if (index > -1) {
+      let updatedChats = chats;
+      updatedChats.splice(index, 1);
+      updateChats(updatedChats);
+      removeConversation(id);
+    }
   };
 
   return (
@@ -36,7 +51,14 @@ function ChatBlock(props) {
         </div>
         <div>{lastMsg}</div>
       </div>
-      <div className={styles.secondary_text}>{time}</div>
+      <div className={styles.chatInfo}>
+        {isSelf ? (
+          <div />
+        ) : (
+          <CloseOutlined className={styles.crossBtn} onClick={closeChat} />
+        )}
+        <div className={styles.secondary_text}>{time}</div>
+      </div>
     </div>
   );
 }

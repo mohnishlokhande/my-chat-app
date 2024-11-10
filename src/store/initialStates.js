@@ -27,7 +27,7 @@ export const chatInitialState = [
     name: "Mohnish",
     participants: [1], //length 1 if self, length 2 if dm, length > 2 if group
     lastMsg: "Hello",
-    time: "10:00",
+    time: "10:00:00",
   },
 ];
 
@@ -39,7 +39,7 @@ export const conversationInitialState = {
         id: 1,
         sender: 2,
         content: "Hello",
-        timestamp: "2023-10-01T10:00:00Z",
+        timestamp: "10:00:00",
       },
     ],
   },

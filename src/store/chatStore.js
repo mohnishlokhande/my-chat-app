@@ -13,13 +13,18 @@ export const useContactStore = create((set) => ({
 }));
 
 export const useChatStore = create((set) => ({
+  idx: 1,
   chats: chatInitialState,
   activeChat: null,
   addChat: (chat) =>
     set((state) => {
-      let len = state?.chats?.length || 1;
+      let len = state?.idx || 1;
       let newChat = { ...chat, id: len + 1 };
-      return { chats: [newChat, ...state.chats], activeChat: newChat };
+      return {
+        chats: [newChat, ...state.chats],
+        activeChat: newChat,
+        idx: len + 1,
+      };
     }),
   updateChats: (item) => set({ chats: item }),
   setActiveChat: (item) => set({ activeChat: item }),
@@ -40,11 +45,18 @@ export const useConversationStore = create((set) => ({
         messages: [],
       };
       conversation.messages.push(message);
+      conversation.idx += 1;
       return {
         conversations: {
           ...state.conversations,
           [conversationId]: conversation,
         },
       };
+    }),
+  removeConversation: (conversationId) =>
+    set((state) => {
+      let updatedconversations = state.conversations;
+      delete updatedconversations[conversationId];
+      return { conversations: updatedconversations };
     }),
 }));

@@ -15,7 +15,6 @@ function Editor() {
 
   const handleSend = () => {
     if (message.trim() === "") return;
-    console.log("Message sent:", message);
     let newmsg = {
       id: currConversation?.idx + 1,
       sender: 1,
@@ -43,7 +42,7 @@ function Editor() {
       handleSend();
     }
   };
-  console.log("Editor rendered", chats);
+
   return (
     <div className={styles.editor}>
       <textarea
