@@ -3,7 +3,7 @@ import styles from "./ChatBlock.module.css";
 import PropTypes from "prop-types";
 
 function ChatBlock(props) {
-  const { name, message, time, isSelf } = props;
+  const { name, message, time, isSelf = "false" } = props;
   return (
     <div className={styles.chatRow}>
       <UserOutlined style={{ fontSize: "larger" }} />
@@ -18,11 +18,6 @@ function ChatBlock(props) {
     </div>
   );
 }
-
-ChatBlock.defaultProps = {
-  avatar: "user",
-  isSelf: false,
-};
 
 ChatBlock.propTypes = {
   name: PropTypes.string.isRequired,

@@ -2,6 +2,7 @@
   display: flex;
   border-bottom: 1px solid var(--color_border);
   padding: 1rem 1rem;
+  cursor: pointer;
 }
 .chatDetails {
   display: flex;
