@@ -26,7 +26,7 @@ function SideBar() {
       <div className={styles.chatHeader}>
         <h2>Chats</h2>
         <PlusCircleOutlined
-          className="btn"
+          className="btn glow-text"
           onClick={() => {
             setMainView(MAIN_VIEW.NEWCHAT);
           }}

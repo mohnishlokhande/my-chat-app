@@ -35,7 +35,7 @@ function ChatBlock(props) {
 
   return (
     <div
-      className={styles.chatRow}
+      className={`${styles.chatRow} glow-text`}
       style={{
         backgroundColor: isSelected
           ? "var(--color_background_selected)"
