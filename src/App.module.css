@@ -1,10 +1,18 @@
 .app {
   display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
+  justify-content: space-between;
+}
+.mainContainer {
+  display: flex;
+  width: 100%;
+  min-height: 90%;
 }
 @media only screen and (max-width: 850px) {
-  .app {
+  .mainContainer {
     flex-direction: column;
+    min-height: auto;
   }
 }

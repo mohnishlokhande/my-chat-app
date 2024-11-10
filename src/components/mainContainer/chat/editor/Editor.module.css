@@ -3,7 +3,6 @@
   padding: 1rem;
   align-items: center;
   border-radius: 1rem;
-  width: 100%;
 }
 
 .blended_textarea {
@@ -13,7 +12,6 @@
   padding: 0.75rem;
   color: white;
   font-size: 1rem;
-  width: auto;
   resize: none;
   font-family: Arial, sans-serif;
   width: 90%;

@@ -20,14 +20,12 @@ function Conversations() {
   }, [currMsgs.length]);
 
   return (
-    <>
-      <div className={styles.conversations}>
-        {currMsgs?.map((msg, index) => {
-          return <MessageBlock key={index} message={msg} />;
-        })}
-        <div ref={messagesEndRef} />
-      </div>
-    </>
+    <div className={styles.conversations}>
+      {currMsgs?.map((msg, index) => {
+        return <MessageBlock key={index} message={msg} />;
+      })}
+      <div ref={messagesEndRef} />
+    </div>
   );
 }
 
