@@ -24,13 +24,12 @@ function NewMessage() {
       (chat) =>
         chat.participants.includes(1) &&
         chat.participants.includes(item.id) &&
-        chat.participants.length === 2 // Ensures it's a direct chat
+        chat.participants.length === 2
     );
     if (directChat) {
       setActiveChat(directChat);
       return;
     }
-    setActiveChat(directChat);
     addChat({ name: item.label, participants: [1, item.id] });
   };
 

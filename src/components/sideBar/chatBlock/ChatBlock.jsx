@@ -9,7 +9,7 @@ function ChatBlock(props) {
   const { setMainView } = useConversationStore();
   const { chat } = props;
 
-  const { id, name, content = "", time, participants } = chat;
+  const { id, name, lastMsg = "", time, participants } = chat;
   const isSelf = participants.length === 1;
   const isSelected = activeChat?.id === id;
 
@@ -31,10 +31,10 @@ function ChatBlock(props) {
       <UserOutlined style={{ fontSize: "larger" }} />
       <div className={styles.chatDetails}>
         <div style={{ display: "flex" }}>
-          <h3>{name}</h3>&nbsp;&nbsp;{" "}
+          <h3>{name}</h3>&nbsp;&nbsp;
           {isSelf && <div className={styles.secondary_text}> you</div>}
         </div>
-        <div>{content}</div>
+        <div>{lastMsg}</div>
       </div>
       <div className={styles.secondary_text}>{time}</div>
     </div>

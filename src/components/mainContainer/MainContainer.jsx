@@ -6,12 +6,7 @@ import styles from "./MainContainer.module.css";
 import NewMessage from "./newMessage";
 
 function MainContainer() {
-  const {
-    mainView,
-    // setMainView,
-    // setActiveChat,
-    // conversations,
-  } = useConversationStore();
+  const { mainView } = useConversationStore();
 
   return (
     <div className={styles.mainContainer}>

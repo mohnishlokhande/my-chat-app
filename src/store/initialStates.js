@@ -26,14 +26,14 @@ export const chatInitialState = [
     id: 1,
     name: "Mohnish",
     participants: [1], //length 1 if self, length 2 if dm, length > 2 if group
-    content: "Hello",
+    lastMsg: "Hello",
     time: "10:00",
   },
 ];
 
 export const conversationInitialState = {
   1: {
-    name: "Mohnish",
+    idx: 1,
     messages: [
       {
         id: 1,
@@ -42,6 +42,5 @@ export const conversationInitialState = {
         timestamp: "2023-10-01T10:00:00Z",
       },
     ],
-    idx: 1,
   },
 };

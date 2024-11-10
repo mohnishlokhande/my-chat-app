@@ -8,7 +8,7 @@ import {
 
 function Editor() {
   const [message, setMessage] = useState("");
-  const { activeChat } = useChatStore();
+  const { chats, activeChat, updateChats } = useChatStore();
   const { conversations, addMessage } = useConversationStore();
 
   const currConversation = conversations[activeChat?.id] || [];
@@ -20,9 +20,20 @@ function Editor() {
       id: currConversation?.idx + 1,
       sender: 1,
       content: message,
-      timestamp: new Date().getTime(),
+      timestamp: new Date().toLocaleTimeString(),
     };
     addMessage(activeChat?.id, newmsg);
+    const index = chats.findIndex((obj) => obj.id === activeChat?.id);
+    if (index > -1) {
+      let updatedChats = chats;
+      const [editedObj] = updatedChats.splice(index, 1);
+      updatedChats.unshift({
+        ...editedObj,
+        lastMsg: message,
+        time: new Date().toLocaleTimeString(),
+      });
+      updateChats(updatedChats);
+    }
     setMessage("");
   };
 
@@ -32,14 +43,16 @@ function Editor() {
       handleSend();
     }
   };
-
+  console.log("Editor rendered", chats);
   return (
     <div className={styles.editor}>
       <textarea
         value={message}
         className={styles.blended_textarea}
         placeholder="Type your message..."
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) => {
+          setMessage(e.target.value);
+        }}
         onKeyPress={handleKeyPress}
       ></textarea>
       <SendOutlined className={`btn ${styles.sendBtn}`} onClick={handleSend} />

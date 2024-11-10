@@ -4,7 +4,7 @@ import {
   useConversationStore,
 } from "../../../../store/chatStore";
 import styles from "./Conversations.module.css";
-import MessageBlock from "./messageBlock/MessageBlock";
+import MessageBlock from "./messageBlock";
 
 function Conversations() {
   const messagesEndRef = useRef(null);

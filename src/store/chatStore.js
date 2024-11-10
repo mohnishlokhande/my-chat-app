@@ -19,9 +19,9 @@ export const useChatStore = create((set) => ({
     set((state) => {
       let len = state?.chats?.length || 1;
       let newChat = { ...chat, id: len + 1 };
-      return { chats: [...state.chats, newChat], activeChat: newChat };
+      return { chats: [newChat, ...state.chats], activeChat: newChat };
     }),
-
+  updateChats: (item) => set({ chats: item }),
   setActiveChat: (item) => set({ activeChat: item }),
 }));
 
@@ -35,7 +35,10 @@ export const useConversationStore = create((set) => ({
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
-      const conversation = state.conversations[conversationId];
+      const conversation = state.conversations[conversationId] || {
+        idx: 1,
+        messages: [],
+      };
       conversation.messages.push(message);
       return {
         conversations: {
