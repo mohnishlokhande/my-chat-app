@@ -9,19 +9,11 @@ import {
 function Editor() {
   const [message, setMessage] = useState("");
   const { chats, activeChat, updateChats } = useChatStore();
-  const { conversations, addMessage } = useConversationStore();
-
-  const currConversation = conversations[activeChat?.id] || [];
+  const { addMessage } = useConversationStore();
 
   const handleSend = () => {
     if (message.trim() === "") return;
-    let newmsg = {
-      id: currConversation?.idx + 1,
-      sender: 1,
-      content: message,
-      timestamp: new Date().toLocaleTimeString(),
-    };
-    addMessage(activeChat?.id, newmsg);
+    addMessage(activeChat?.id, message);
     const index = chats.findIndex((obj) => obj.id === activeChat?.id);
     if (index > -1) {
       let updatedChats = chats;

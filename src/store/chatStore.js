@@ -33,6 +33,7 @@ export const useChatStore = create((set) => ({
 export const useConversationStore = create((set) => ({
   mainView: MAIN_VIEW.EMPTY,
   setMainView: (item) => set({ mainView: item }),
+
   conversations: conversationInitialState,
   addConversation: (conversation) =>
     set((state) => {
@@ -41,10 +42,16 @@ export const useConversationStore = create((set) => ({
   addMessage: (conversationId, message) =>
     set((state) => {
       const conversation = state.conversations[conversationId] || {
-        idx: 1,
+        idx: 0,
         messages: [],
       };
-      conversation.messages.push(message);
+      const newMessage = {
+        id: conversation.idx + 1,
+        sender: 1,
+        content: message,
+        timestamp: new Date().toLocaleTimeString(),
+      };
+      conversation.messages.push(newMessage);
       conversation.idx += 1;
       return {
         conversations: {
