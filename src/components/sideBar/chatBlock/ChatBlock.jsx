@@ -57,7 +57,7 @@ function ChatBlock(props) {
         ) : (
           <CloseOutlined className={styles.crossBtn} onClick={closeChat} />
         )}
-        <div className={styles.secondary_text}>{time}</div>
+        <div className={styles.secondary_text}>{time?.slice(0, -3)}</div>
       </div>
     </div>
   );

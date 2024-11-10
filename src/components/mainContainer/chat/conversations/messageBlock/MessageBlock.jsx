@@ -9,7 +9,8 @@ function MessageBlock(props) {
         message.sender === 1 && styles.myMessage
       }`}
     >
-      {message?.content}
+      <h4 style={{ paddingRight: "1rem" }}>{message?.content}</h4>
+      <div className={styles?.time}> {message?.timestamp?.slice(0, -3)}</div>
     </div>
   );
 }
