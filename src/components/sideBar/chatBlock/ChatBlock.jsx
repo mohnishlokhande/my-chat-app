@@ -49,7 +49,7 @@ function ChatBlock(props) {
           <h3>{name}</h3>&nbsp;&nbsp;
           {isSelf && <div className={styles.secondary_text}> you</div>}
         </div>
-        <div>{lastMsg}</div>
+        <div className={styles.truncate}>{lastMsg}</div>
       </div>
       <div className={styles.chatInfo}>
         {isSelf ? (
