@@ -7,3 +7,17 @@
   flex-direction: column;
   height: -webkit-fill-available;
 }
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  padding: 4px 16px;
+  width: max-content;
+  justify-content: center;
+  font-size: larger;
+}
+.myMessage {
+  align-self: flex-end;
+}

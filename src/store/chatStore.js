@@ -33,8 +33,15 @@ export const useConversationStore = create((set) => ({
     set((state) => {
       ({ conversations: [...state.conversations, conversation] });
     }),
-  //   addMessage: (conversationId, message) =>
-  //     set((state) => {
-  //       ({ conversations: [...state.conversations] });
-  //     }),
+  addMessage: (conversationId, message) =>
+    set((state) => {
+      const conversation = state.conversations[conversationId];
+      conversation.messages.push(message);
+      return {
+        conversations: {
+          ...state.conversations,
+          [conversationId]: conversation,
+        },
+      };
+    }),
 }));

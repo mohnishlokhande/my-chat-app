@@ -1,13 +1,29 @@
 import { useState } from "react";
 import styles from "./Editor.module.css";
 import { SendOutlined } from "@ant-design/icons";
+import {
+  useChatStore,
+  useConversationStore,
+} from "../../../../store/chatStore";
 
 function Editor() {
   const [message, setMessage] = useState("");
+  const { activeChat } = useChatStore();
+  const { conversations, addMessage } = useConversationStore();
+
+  const currConversation = conversations[activeChat?.id] || [];
 
   const handleSend = () => {
-    setMessage("");
+    if (message.trim() === "") return;
     console.log("Message sent:", message);
+    let newmsg = {
+      id: currConversation?.idx + 1,
+      sender: 1,
+      content: message,
+      timestamp: new Date().getTime(),
+    };
+    addMessage(activeChat?.id, newmsg);
+    setMessage("");
   };
 
   const handleKeyPress = (e) => {
