@@ -20,6 +20,7 @@
 }
 .myMessage {
   align-self: flex-end;
+  max-width: 80%;
 }
 .time {
   font-size: 10px;
