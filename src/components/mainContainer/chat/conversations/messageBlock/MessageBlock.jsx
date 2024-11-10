@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 function MessageBlock(props) {
   const { message } = props;
   return (
+    // if my message, align right. Else align left
     <div
       className={`${styles.message} ${
         message.sender === 1 && styles.myMessage
       }`}
     >
+      {/* so that line can break */}
       <h4 style={{ paddingRight: "1rem", whiteSpace: "pre-wrap" }}>
         {message?.content}
       </h4>

@@ -49,8 +49,8 @@ The application has mainly 4 components:
 
 Maintained two main structures for the chat
 
-- chatInitialState: It is an array of all the chats in order(latest first)
-- conversationInitialState: It is an object with the key as ID of chat. It contains the messages for each chat
+- `chatInitialState`: It is an array of all the chats in order(latest first)
+- `conversationInitialState`: It is an object with the key as ID of chat. It contains the messages for each chat
 
 ## Technologies
 

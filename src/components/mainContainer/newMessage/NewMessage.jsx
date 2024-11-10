@@ -16,6 +16,7 @@ function NewMessage() {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const addNewChat = (item) => {
+    // if self, don't create a new chat
     if (item.id === 1) {
       setActiveChat(chats[0]);
       return;
@@ -26,10 +27,12 @@ function NewMessage() {
         chat.participants.includes(item.id) &&
         chat.participants.length === 2
     );
+    // if direct chat already exists, set it as active chat
     if (directChat) {
       setActiveChat(directChat);
       return;
     }
+    // create a new chat
     addChat({ name: item.label, participants: [1, item.id] });
   };
 

@@ -10,11 +10,13 @@ function Conversations() {
   const messagesEndRef = useRef(null);
   const { activeChat } = useChatStore();
   const { conversations } = useConversationStore();
+  // get the current messages of the active chat
   const currMsgs = useMemo(
     () => conversations[activeChat?.id]?.messages || [],
     [conversations, activeChat]
   );
 
+  // scroll to the bottom of the chat window
   useEffect(() => {
     messagesEndRef?.current?.scrollIntoView({ behavior: "smooth" });
   }, [currMsgs.length]);

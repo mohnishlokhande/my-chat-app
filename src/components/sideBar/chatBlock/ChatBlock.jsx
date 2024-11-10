@@ -10,7 +10,7 @@ function ChatBlock(props) {
   const { chat } = props;
 
   const { id, name, lastMsg = "", time, participants } = chat;
-  const isSelf = participants.length === 1;
+  const isSelf = participants.length === 1; //length 1 if self, length 2 if dm, length > 2 if group
   const isSelected = activeChat?.id === id;
 
   const selectChat = () => {
@@ -20,6 +20,7 @@ function ChatBlock(props) {
 
   const closeChat = (e) => {
     e.stopPropagation();
+    // closing chat from main view only if it is active
     if (activeChat?.id === id) {
       setMainView(MAIN_VIEW.EMPTY);
       setActiveChat(null);
@@ -52,6 +53,7 @@ function ChatBlock(props) {
         <div className={styles.truncate}>{lastMsg}</div>
       </div>
       <div className={styles.chatInfo}>
+        {/* if chat is self, don't show close button */}
         {isSelf ? (
           <div />
         ) : (

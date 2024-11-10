@@ -16,6 +16,7 @@ function Editor() {
     addMessage(activeChat?.id, message);
     const index = chats.findIndex((obj) => obj.id === activeChat?.id);
     if (index > -1) {
+      // taking out the active chat and adding it to the top of the list
       let updatedChats = chats;
       const [editedObj] = updatedChats.splice(index, 1);
       updatedChats.unshift({
@@ -29,6 +30,7 @@ function Editor() {
   };
 
   const handleKeyPress = (e) => {
+    // send message on enter press without shift
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();

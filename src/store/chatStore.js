@@ -13,8 +13,8 @@ export const useContactStore = create((set) => ({
 }));
 
 export const useChatStore = create((set) => ({
-  idx: 1,
-  chats: chatInitialState,
+  idx: 1, // maintaining index for chat objects
+  chats: chatInitialState, //array of chat objects, displayed in the sidebar
   activeChat: null,
   addChat: (chat) =>
     set((state) => {
@@ -22,8 +22,8 @@ export const useChatStore = create((set) => ({
       let newChat = { ...chat, id: len + 1 };
       return {
         chats: [newChat, ...state.chats],
-        activeChat: newChat,
-        idx: len + 1,
+        activeChat: newChat, // set active chat to the new chat
+        idx: len + 1, // increment index
       };
     }),
   updateChats: (item) => set({ chats: item }),
@@ -31,7 +31,7 @@ export const useChatStore = create((set) => ({
 }));
 
 export const useConversationStore = create((set) => ({
-  mainView: MAIN_VIEW.EMPTY,
+  mainView: MAIN_VIEW.EMPTY, // flag to determine which view to display in the main container
   setMainView: (item) => set({ mainView: item }),
 
   conversations: conversationInitialState,
@@ -42,7 +42,7 @@ export const useConversationStore = create((set) => ({
   addMessage: (conversationId, message) =>
     set((state) => {
       const conversation = state.conversations[conversationId] || {
-        idx: 0,
+        idx: 0, // if conversation doesn't exist, create a new one
         messages: [],
       };
       const newMessage = {

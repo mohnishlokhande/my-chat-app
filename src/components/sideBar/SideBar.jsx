@@ -14,6 +14,7 @@ function SideBar() {
     setSearch(e.target.value);
   };
 
+  // filter chats based on search
   const filerChats = useMemo(() => {
     if (search === "") return chats;
     return chats.filter((chat) => {
@@ -28,7 +29,7 @@ function SideBar() {
         <PlusCircleOutlined
           className="btn glow-text"
           onClick={() => {
-            setMainView(MAIN_VIEW.NEWCHAT);
+            setMainView(MAIN_VIEW.NEWCHAT); // set main view to new chat for creating a new chat
           }}
         />
       </div>

@@ -31,6 +31,7 @@ export const chatInitialState = [
   },
 ];
 
+// here key is chat id
 export const conversationInitialState = {
   1: {
     idx: 1,

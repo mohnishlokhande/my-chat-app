@@ -10,8 +10,13 @@ function MainContainer() {
 
   return (
     <div className={styles.mainContainer}>
+      {/* welcome page */}
       {mainView === MAIN_VIEW.EMPTY && <EmptyPage />}
+
+      {/* create a new chat */}
       {mainView === MAIN_VIEW.NEWCHAT && <NewMessage />}
+
+      {/* chat view */}
       {mainView === MAIN_VIEW.CHAT && <Chat />}
     </div>
   );
