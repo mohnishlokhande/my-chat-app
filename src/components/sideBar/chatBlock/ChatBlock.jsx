@@ -1,23 +1,32 @@
 import { UserOutlined } from "@ant-design/icons";
 import styles from "./ChatBlock.module.css";
 import PropTypes from "prop-types";
+import { useChatStore, useConversationStore } from "../../../store/chatStore";
+import { MAIN_VIEW } from "../../../utils/constants";
 
 function ChatBlock(props) {
-  const {
-    name,
-    message = "",
-    time,
-    isSelf = false,
-    isSelected = false,
-  } = props;
+  const { activeChat, setActiveChat } = useChatStore();
+  const { setMainView } = useConversationStore();
+  const { chat } = props;
+
+  const { id, name, message = "", time, participants } = chat;
+  const isSelf = participants.length === 1;
+  const isSelected = activeChat?.id === id;
+
+  const selectChat = () => {
+    setActiveChat(chat);
+    setMainView(MAIN_VIEW.CHAT);
+  };
+
   return (
     <div
       className={styles.chatRow}
       style={{
         backgroundColor: isSelected
-          ? "var(color_background_selected)"
+          ? "var(--color_background_selected)"
           : "var(--color_background)",
       }}
+      onClick={selectChat}
     >
       <UserOutlined style={{ fontSize: "larger" }} />
       <div className={styles.chatDetails}>
@@ -33,6 +42,7 @@ function ChatBlock(props) {
 }
 
 ChatBlock.propTypes = {
+  chat: PropTypes.object,
   name: PropTypes.string,
   message: PropTypes.string,
   time: PropTypes.string,

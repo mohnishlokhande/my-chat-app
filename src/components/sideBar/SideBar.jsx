@@ -5,13 +5,9 @@ import { useChatStore, useConversationStore } from "../../store/chatStore";
 import { MAIN_VIEW } from "../../utils/constants";
 
 function SideBar() {
-  const { chats, activeChat } = useChatStore();
-  const {
-    // mainView,
-    setMainView,
-    // chats,
-  } = useConversationStore();
-  console.log("Side", activeChat, "|", chats);
+  const { chats } = useChatStore();
+  const { setMainView } = useConversationStore();
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.chatHeader}>
@@ -27,16 +23,7 @@ function SideBar() {
       <input placeholder="Find a Chat" className={styles.searchBox} />
 
       {chats?.map((chat, index) => {
-        return (
-          <ChatBlock
-            key={index}
-            name={chat.name}
-            message={chat.message}
-            time={chat.time}
-            isSelf={chat.participants.length === 1}
-            isSelected={activeChat?.id === chat.id}
-          />
-        );
+        return <ChatBlock key={index} chat={chat} />;
       })}
     </div>
   );

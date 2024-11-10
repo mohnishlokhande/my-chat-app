@@ -1,3 +1,10 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* background-color: var(--color_background_primary); */
+}
 .chatHeader {
   display: flex;
   padding: 2rem 1.5rem;

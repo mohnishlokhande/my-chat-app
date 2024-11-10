@@ -1,0 +1,31 @@
+.editor {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 1rem;
+  width: 100%;
+  /* border: 1px solid var(--color_border);
+  background-color: var(--color_background_primary); */
+}
+
+.blended_textarea {
+  background: var(--color_background_primary);
+  border: 1px solid var(--color_border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 1rem;
+  width: auto;
+  resize: none;
+  transition: background 0.3s ease, border 0.3s ease;
+  font-family: Arial, sans-serif;
+
+  width: 90%;
+}
+
+.blended_textarea:focus {
+  border: 2px solid #fff;
+}
+.sendBtn {
+  padding-left: 1rem;
+}

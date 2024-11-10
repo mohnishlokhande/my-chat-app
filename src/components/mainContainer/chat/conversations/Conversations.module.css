@@ -1,0 +1,9 @@
+.conversations {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+}

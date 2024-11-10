@@ -12,14 +12,12 @@ function MainContainer() {
     // setActiveChat,
     // conversations,
   } = useConversationStore();
-  console.log("MainContainer", mainView);
 
   return (
     <div className={styles.mainContainer}>
       {mainView === MAIN_VIEW.EMPTY && <EmptyPage />}
       {mainView === MAIN_VIEW.NEWCHAT && <NewMessage />}
       {mainView === MAIN_VIEW.CHAT && <Chat />}
-      {/* MainContainer */}
     </div>
   );
 }

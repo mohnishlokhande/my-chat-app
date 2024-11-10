@@ -32,14 +32,12 @@ function NewMessage() {
     }
     setActiveChat(directChat);
     addChat({ name: item.label, participants: [1, item.id] });
-    console.log("Direct Chat", directChat);
   };
 
   const handleSelectChange = (option) => {
     setSelectedOption(option);
     setMainView(MAIN_VIEW.CHAT);
     addNewChat(option);
-    console.log("Selected Value:", option);
   };
 
   return (

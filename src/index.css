@@ -18,7 +18,8 @@
   --color_tertiary: #1a1a1a;
   --color_background: #242424;
   --color_background_secondary: #121212c2;
-  --color_background_selected: #76767663;
+  --color_background_primary: #76767663;
+  --color_background_selected: #0f47c5a6;
   --color_content_primary: #f9f9f9;
   --color_content_secondary: #f9f9f9a0;
   --color_link: #646cff;
@@ -63,6 +64,14 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.btn {
+  font-size: x-large;
+  color: var(--color_content_secondary);
+}
+.btn:hover {
+  color: var(--color_content_primary);
 }
 
 button {
