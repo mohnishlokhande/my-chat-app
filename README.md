@@ -25,6 +25,7 @@ View the live application here: https://mohnishlokhande.github.io/my-chat-app/
 
 - Group messages
 - Draft message for a chat, which was not sent
+- Add new contacts
 
 ## Architecture
 

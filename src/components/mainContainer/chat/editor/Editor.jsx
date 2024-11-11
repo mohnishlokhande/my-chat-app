@@ -41,6 +41,7 @@ function Editor() {
     <div className={styles.editor}>
       <textarea
         value={message}
+        autoFocus
         className={styles.blended_textarea}
         placeholder="Type your message..."
         onChange={(e) => {

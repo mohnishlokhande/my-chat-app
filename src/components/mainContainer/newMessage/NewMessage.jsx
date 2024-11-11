@@ -7,6 +7,7 @@ import {
 } from "../../../store/chatStore";
 import { useState } from "react";
 import { MAIN_VIEW } from "../../../utils/constants";
+import { chatInitialState } from "../../../store/initialStates";
 
 function NewMessage() {
   const { contacts } = useContactStore();
@@ -18,7 +19,7 @@ function NewMessage() {
   const addNewChat = (item) => {
     // if self, don't create a new chat
     if (item.id === 1) {
-      setActiveChat(chats[0]);
+      setActiveChat(chatInitialState[0]);
       return;
     }
     const directChat = chats.find(
