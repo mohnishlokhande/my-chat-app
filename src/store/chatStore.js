@@ -66,4 +66,39 @@ export const useConversationStore = create((set) => ({
       delete updatedconversations[conversationId];
       return { conversations: updatedconversations };
     }),
+  updateMessage: (conversationId, messageId, message) =>
+    set((state) => {
+      let conversation = state.conversations[conversationId] || {
+        idx: 0, // if conversation doesn't exist, create a new one
+        messages: [],
+      };
+      let updatedMessage = conversation.messages.find(
+        (msg) => msg.id === messageId
+      );
+      updatedMessage.content = message;
+      return {
+        conversations: {
+          ...state.conversations,
+          [conversationId]: conversation,
+        },
+      };
+    }),
+  deleteMessage: (conversationId, messageId) =>
+    set((state) => {
+      let conversation = state.conversations[conversationId] || {
+        idx: 0, // if conversation doesn't exist, create a new one
+        messages: [],
+      };
+      conversation.messages = conversation.messages.filter(
+        (msg) => msg.id !== messageId
+      );
+
+      console.log("####conversation: ", messageId, conversation);
+      return {
+        conversations: {
+          ...state.conversations,
+          [conversationId]: conversation,
+        },
+      };
+    }),
 }));

@@ -29,6 +29,13 @@ export const chatInitialState = [
     lastMsg: "Hello",
     time: "10:00:00",
   },
+  {
+    id: 2,
+    name: "John",
+    participants: [1, 3], //length 1 if self, length 2 if dm, length > 2 if group
+    lastMsg: "Hello",
+    time: "10:00:00",
+  },
 ];
 
 // here key is chat id
@@ -41,6 +48,23 @@ export const conversationInitialState = {
         sender: 2,
         content: "Hello",
         timestamp: "10:00:00",
+      },
+    ],
+  },
+  2: {
+    idx: 2,
+    messages: [
+      {
+        id: 1,
+        sender: 3,
+        content: "Hello",
+        timestamp: "10:00:00",
+      },
+      {
+        id: 2,
+        sender: 3,
+        content: "Hello there",
+        timestamp: "10:01:00",
       },
     ],
   },
